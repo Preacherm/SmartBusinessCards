@@ -1,0 +1,55 @@
+name: Deploy Smart Business Cards to cPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smart-business-cards-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to cPanel
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v6
+
+      - name: Deploy files via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: strict
+          local-dir: ./
+          server-dir: ./
+          timeout: 60000
+
+          # Preview the first deployment before uploading.
+          dry-run: true
+          dangerous-clean-slate: false
+
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/error_log
+            **/*.log
+            **/*.sql
+            **/README.md
+            documentation/**
+            tests/**
+            storage/**
