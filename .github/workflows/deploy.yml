@@ -17,9 +17,9 @@ jobs:
   deploy:
     name: Deploy to cPanel
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
 
-    # Only deploy the main branch, including manual runs.
+    # Only deploy main, including manual runs.
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -39,16 +39,16 @@ jobs:
 
           local-dir: ./
 
-          # FTP account is restricted to the cards website folder.
+          # FTP account root is the cards website folder.
           server-dir: ./
 
+          # Timeout for individual FTP operations, in milliseconds.
           timeout: 60000
           log-level: standard
 
-          # Upload changes to the live website.
           dry-run: false
 
-          # Never wipe the destination folder.
+          # Disable wiping the entire destination.
           dangerous-clean-slate: false
 
           exclude: |
