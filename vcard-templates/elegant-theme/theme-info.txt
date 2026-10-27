@@ -1,0 +1,8 @@
+/*
+Theme Name: Elegant Theme
+Theme URI: https://cards.afriitech.co.za/
+Author: Afriitech
+Version: 1
+Price: Free
+Description: An elegant, refined vCard with a soft gradient header and named, clickable contact links.
+*/

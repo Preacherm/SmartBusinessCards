@@ -1,0 +1,8 @@
+/*
+Theme Name: Rose Elegant
+Theme URI: https://cards.afriitech.co.za/
+Author: Afriitech
+Version: 1
+Price: Free
+Description: A refined light vCard with a diagonal corner, rose-ringed photo, a flowing script name and a rose social bar. The rose accent follows your chosen colour.
+*/

@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Minimal Theme — a clean, airy, minimal vCard layout
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: #1f2933;
+    background: #f4f5f7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.min-wrapper {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 24px 16px 110px;
+}
+
+.min-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(31, 41, 51, 0.08);
+    overflow: hidden;
+}
+
+/* Cover ------------------------------------------------------------------ */
+.min-cover {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--theme-color-1);
+}
+
+/* Profile ---------------------------------------------------------------- */
+.min-profile {
+    text-align: center;
+    padding: 0 28px 26px;
+    margin-top: -56px;
+}
+
+.min-avatar {
+    display: inline-block;
+}
+
+.min-avatar img {
+    width: 104px;
+    height: 104px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 18px rgba(31, 41, 51, 0.12);
+    background: #fff;
+}
+
+.min-name {
+    margin: 16px 0 2px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: #1f2933;
+}
+
+.min-role {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-color-1);
+    letter-spacing: 0.2px;
+}
+
+.min-about {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b7280;
+}
+
+/* Contact list ----------------------------------------------------------- */
+.min-list {
+    list-style: none;
+    margin: 0;
+    padding: 6px 18px 8px;
+    border-top: 1px solid #eef0f3;
+}
+
+.min-item + .min-item {
+    border-top: 1px solid #f1f3f5;
+}
+
+.min-item-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 8px;
+    transition: background 0.18s ease;
+    border-radius: 12px;
+}
+
+.min-item-link:hover {
+    background: #f7f8fa;
+}
+
+.min-item-icon {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--theme-color-0_08, rgba(0, 0, 0, 0.04));
+    color: var(--theme-color-1);
+    font-size: 16px;
+}
+
+.min-item-text {
+    flex: 1 1 auto;
+    margin: 0 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1f2933;
+    word-break: break-word;
+}
+
+.min-item-arrow {
+    flex: 0 0 auto;
+    color: #c2c8d0;
+    font-size: 18px;
+}
+
+/* Save button ------------------------------------------------------------ */
+.min-action {
+    padding: 8px 22px 24px;
+}
+
+.min-save-btn {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--theme-color-1);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 8px 20px var(--theme-color-0_3, rgba(0, 0, 0, 0.15));
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.min-save-btn:hover {
+    color: #fff;
+    filter: brightness(0.96);
+    transform: translateY(-1px);
+}
+
+/* Branding --------------------------------------------------------------- */
+.min-branding {
+    text-align: center;
+    padding: 0 0 22px;
+    font-size: 12px;
+}
+
+.min-branding a {
+    color: #9aa3ad;
+}
+
+.add-to-contact-wrapper {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    .min-wrapper { padding: 16px 12px 90px; }
+}

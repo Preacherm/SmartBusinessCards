@@ -1,0 +1,36 @@
+# Hardened: prevent execution of any script in the uploads/storage tree.
+# Defence-in-depth — if a malicious file is ever written here, it is served
+# as plain text (or denied) instead of being executed.
+
+# 1) Neutralise PHP / CGI handlers for this directory and below.
+<IfModule mime_module>
+    RemoveHandler .php .php3 .php4 .php5 .php7 .php8 .phtml .pht .phps .cgi .pl .py .jsp .asp .aspx .sh .shtml
+    RemoveType .php .php3 .php4 .php5 .php7 .php8 .phtml .pht .phps
+</IfModule>
+
+# 2) Force any script-like file to be treated as inert text.
+<FilesMatch "(?i)\.(php|php2|php3|php4|php5|php7|php8|phtml|pht|phps|pl|py|jsp|asp|aspx|htm|html|shtml|sh|cgi|inc)$">
+    SetHandler none
+    SetHandler default-handler
+    ForceType text/plain
+    Require all denied
+</FilesMatch>
+
+# 3) Disable mod_php engine here if available.
+<IfModule mod_php.c>
+    php_admin_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_admin_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_admin_flag engine off
+</IfModule>
+
+# 4) Allow only safe static assets to be served from storage.
+<FilesMatch "(?i)\.(jpg|jpeg|png|gif|webp|svg|ico|pdf|mp4|webm|woff|woff2|ttf|css|js|json|txt)$">
+    Require all granted
+</FilesMatch>
+
+# 5) No directory listings.
+Options -Indexes -ExecCGI

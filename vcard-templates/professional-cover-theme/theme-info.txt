@@ -1,0 +1,8 @@
+/*
+Theme Name: Professional Cover
+Theme URI: https://cards.afriitech.co.za/
+Author: Afriitech
+Version: 1
+Price: Free
+Description: A bold professional vCard with a cover photo, overlapping profile picture, monogram brand mark, serif name and a social bar. The accent colour follows your chosen colour.
+*/

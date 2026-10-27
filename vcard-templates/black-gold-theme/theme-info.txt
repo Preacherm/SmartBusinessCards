@@ -1,0 +1,8 @@
+/*
+Theme Name: Black & Gold Luxe
+Theme URI: https://cards.afriitech.co.za/
+Author: Afriitech
+Version: 1
+Price: Free
+Description: An elegant dark vCard in black and gold, with a cover header, gold-ringed photo, monogram brand mark and a gold social bar. The gold accent follows your chosen colour.
+*/
