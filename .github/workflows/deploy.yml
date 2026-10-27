@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
+    # Only deploy the main branch, including manual runs.
+    if: github.ref == 'refs/heads/main'
+
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v6
@@ -29,15 +32,23 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+
           protocol: ftps
           port: 21
           security: strict
-          local-dir: ./
-          server-dir: ./
-          timeout: 60000
 
-          # Preview the first deployment before uploading.
-          dry-run: true
+          local-dir: ./
+
+          # FTP account is restricted to the cards website folder.
+          server-dir: ./
+
+          timeout: 60000
+          log-level: standard
+
+          # Upload changes to the live website.
+          dry-run: false
+
+          # Never wipe the destination folder.
           dangerous-clean-slate: false
 
           exclude: |
